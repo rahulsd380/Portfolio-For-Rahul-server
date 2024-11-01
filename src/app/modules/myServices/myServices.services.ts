@@ -58,14 +58,15 @@ const updateService = async (
   return result;
 };
 
-// const deleteBike = async (id: string) => {
-//   const result = await MyService.findByIdAndDelete(id);
-//   return result;
-// };
+const deleteService = async (id: string) => {
+  const result = await MyService.findByIdAndDelete(id);
+  return result;
+};
 
 export const MyServices = {
   createService,
   getAllServices,
   getSingleServiceById,
   updateService,
+  deleteService,
 };

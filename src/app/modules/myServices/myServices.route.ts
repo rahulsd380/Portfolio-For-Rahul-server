@@ -14,22 +14,21 @@ router.post(
   MyServiceControllers.createService
 );
 
-router.get('/', MyServiceControllers.getAllServices);
-router.get('/:id', MyServiceControllers.getSingleServiceById);
+router.get("/", MyServiceControllers.getAllServices);
+router.get("/:id", MyServiceControllers.getSingleServiceById);
 
-router.put('/update-service/:id',
+router.put(
+  "/update-service/:id",
   multerUpload.single("file"),
   (req: Request, res: Response, next: NextFunction) => {
-    if(req?.body?.data){
+    if (req?.body?.data) {
       req.body = JSON.parse(req?.body?.data);
     }
     next();
   },
-  MyServiceControllers.updateService);
+  MyServiceControllers.updateService
+);
+router.delete("/:id", MyServiceControllers.deleteService);
 
-  
-// router.post('/', auth(UserRole.admin), validateRequest(bikeValidation), MyServiceControllers.createBike);
-// router.put('/:id', auth(UserRole.admin), MyServiceControllers.updateBike);
-// router.delete('/:id', auth(UserRole.admin), MyServiceControllers.deleteBike);
 
 export const MyServiceRoutes = router;

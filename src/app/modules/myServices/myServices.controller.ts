@@ -50,33 +50,21 @@ const updateService = catchAsync(async (req, res) => {
 });
 
 
-// const updateBike= catchAsync(async (req, res) => {
-//   const {id} = req.params;
-//   const result = await BikeServices.updateBike(id, req.body);
-
-//   sendResponse(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: "Bike updated successfully",
-//     data: result,
-//   });
-// });
-
-// const deleteBike = catchAsync(async (req, res) => {
-//   const { id } = req.params;
-//   const result = await BikeServices.deleteBike(id);
-
-//   sendResponse(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: "Bike deleted successfully",
-//     data: result,
-//   });
-// });
+const deleteService = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await MyServices.deleteService(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Service deleted successfully",
+    data: result,
+  });
+});
 
 export const MyServiceControllers = {
   createService,
   getAllServices,
   getSingleServiceById,
   updateService,
+  deleteService,
 };

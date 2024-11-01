@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { MyServiceRoutes } from "../modules/myServices/myServices.route";
+import { EndorsementRoutes } from "../modules/endorsments/endorsment.route";
 
 const router = Router();
 
@@ -7,6 +8,10 @@ const moduleRoutes = [
   {
     path: "/services",
     route: MyServiceRoutes,
+  },
+  {
+    path: "/endorsements",
+    route: EndorsementRoutes,
   },
 ];
 
