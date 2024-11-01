@@ -1,33 +1,12 @@
 import { Router } from "express";
-// import { userRoutes } from "../modules/users/users.route";
-import { bikeRoutes } from "../modules/myServices/myServices.route";
-import { AuthRoute } from "../modules/auth/auth.route";
-import { userRoutes } from "../modules/users/users.route";
-import { rentalRoutes } from "../modules/rental/rental.route";
-import { couponCodeRoutes } from "../modules/couponCode/couponCode.route";
+import { MyServiceRoutes } from "../modules/myServices/myServices.route";
 
 const router = Router();
 
 const moduleRoutes = [
   {
-    path: "/users",
-    route: userRoutes,
-  },
-  {
-    path: "/auth",
-    route: AuthRoute,
-  },
-  {
-    path: "/bikes",
-    route: bikeRoutes,
-  },
-  {
-    path: "/rentals",
-    route: rentalRoutes,
-  },
-  {
-    path: "/coupon",
-    route: couponCodeRoutes,
+    path: "/services",
+    route: MyServiceRoutes,
   },
 ];
 

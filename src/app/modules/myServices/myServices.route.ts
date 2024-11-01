@@ -1,16 +1,25 @@
-import express from 'express';
-import validateRequest from '../../middlewares/validateRequest';
-import { BikeControllers } from './myServices.controller';
-import bikeValidation from './bikes.validation';
-import auth from '../../middlewares/auth';
-import { UserRole } from '../auth/auth.constannts';
+import express, { NextFunction, Request, Response } from "express";
+import validateRequest from "../../middlewares/validateRequest";
+import { MyServiceControllers } from "./myServices.controller";
+import { multerUpload } from "../../config/multer.config";
+import myServiceValidationSchema from "./bikes.validation";
 
 const router = express.Router();
 
-router.post('/', auth(UserRole.admin), validateRequest(bikeValidation), BikeControllers.createBike);
-router.get('/', BikeControllers.getAllBikes);
-router.put('/:id', auth(UserRole.admin), BikeControllers.updateBike);
-router.delete('/:id', auth(UserRole.admin), BikeControllers.deleteBike);
-router.get('/:bikeId', BikeControllers.getSingleBikeById);
+router.post(
+  "/create-service",
+  multerUpload.single("file"),
+  (req: Request, res: Response, next: NextFunction) => {
+    req.body = JSON.parse(req.body.data);
+    next();
+  },
+  MyServiceControllers.createService
+);
 
-export const bikeRoutes = router;
+// router.post('/', auth(UserRole.admin), validateRequest(bikeValidation), MyServiceControllers.createBike);
+// router.get('/', MyServiceControllers.getAllBikes);
+// router.put('/:id', auth(UserRole.admin), MyServiceControllers.updateBike);
+// router.delete('/:id', auth(UserRole.admin), MyServiceControllers.deleteBike);
+// router.get('/:bikeId', MyServiceControllers.getSingleBikeById);
+
+export const MyServiceRoutes = router;

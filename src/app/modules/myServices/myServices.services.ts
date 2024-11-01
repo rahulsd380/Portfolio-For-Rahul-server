@@ -1,54 +1,51 @@
-import { TBike } from "./myServices.interface";
-import { Bike } from "./myServices.model";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { sendImageToCloudinary } from "../../utils/sendImageToCloudinary";
+import { TMyService } from "./myServices.interface";
+import { MyService } from "./myServices.model";
 
-const createBike = async (payload: TBike) => {
+const createService = async (payload: TMyService, file: any) => {
+  // checking if the file is there or not
+  if (file && file.path) {
+    const imageName = `${payload?.name}`;
+    const path = file.path;
 
-  const { name, image, description, pricePerHour, cc, year, model, brand } = payload;
-
-  const payloadData = {
-    name : name || "",
-    image : image || "",
-    description : description || "",
-    pricePerHour : pricePerHour || "",
-    isAvailable : true,
-    cc : cc || "",
-    year : year || "",
-    model : model || "",
-    brand : brand || "",
+    // Upload the image to Cloudinary
+    const { secure_url } = await sendImageToCloudinary(imageName, path);
+    payload.icon = secure_url;
   }
-
-  const result = await Bike.create(payloadData);
+  
+  const result = await MyService.create(payload);
   return result;
 };
 
 
-const getAllBikes = async () => {
-  const result = await Bike.find();
-  return result;
-};
+// const getAllBikes = async () => {
+//   const result = await MyService.find();
+//   return result;
+// };
 
-const getSingleBikeById = async (bikeId: string) => {
-  const result = await Bike.findById(bikeId);
-  return result;
-};
+// const getSingleBikeById = async (bikeId: string) => {
+//   const result = await MyService.findById(bikeId);
+//   return result;
+// };
 
-const updateBike = async (id : string, payload : Partial<TBike>) => {
-  const result = await Bike.findByIdAndUpdate(id, payload, {
-    new: true,
-    runValidators: true,
-  });
-  return result;
-};
+// const updateBike = async (id : string, payload : Partial<TMyService>) => {
+//   const result = await Bike.findByIdAndUpdate(id, payload, {
+//     new: true,
+//     runValidators: true,
+//   });
+//   return result;
+// };
 
-const deleteBike = async (id: string) => {
-  const result = await Bike.findByIdAndDelete(id);
-  return result;
-};
+// const deleteBike = async (id: string) => {
+//   const result = await MyService.findByIdAndDelete(id);
+//   return result;
+// };
 
-export const BikeServices = {
-  createBike,
-  getAllBikes,
-  updateBike,
-  deleteBike,
-  getSingleBikeById,
+export const MyServices = {
+  createService,
+  // getAllBikes,
+  // updateBike,
+  // deleteBike,
+  // getSingleBikeById,
 };

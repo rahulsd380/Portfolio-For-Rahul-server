@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 });
 
 // Application routes
-app.use('/api', router);
+app.use('/api/v1', router);
 
 // Catch-all route for handling 404 errors
 app.use(notFoundHandler);
