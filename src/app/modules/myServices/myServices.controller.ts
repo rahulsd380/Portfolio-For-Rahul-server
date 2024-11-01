@@ -15,36 +15,26 @@ const createService = catchAsync(async (req, res) => {
   });
 });
 
-// const getAllBikes = catchAsync(async (req, res) => {
-//   const result = await BikeServices.getAllBikes();
+const getAllServices = catchAsync(async (req, res) => {
+  const result = await MyServices.getAllServices();
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Services retrieved successfully',
+    data: result,
+  });
+});
 
-//   if(result.length === 0 || result.length === undefined){
-//     sendResponse(res, {
-//       statusCode: httpStatus.OK,
-//       success: false,
-//       message: "No data found.",
-//       data: result,
-//     });
-//   }
-
-//   sendResponse(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Bikes retrieved successfully',
-//     data: result,
-//   });
-// });
-
-// const getSingleBikeById = catchAsync(async (req, res) => {
-//   const {bikeId} = req.params;
-//   const result = await BikeServices.getSingleBikeById(bikeId);
-//   sendResponse(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Bike fetched successfully.',
-//     data: result,
-//   });
-// })
+const getSingleServiceById = catchAsync(async (req, res) => {
+  const {id} = req.params;
+  const result = await MyServices.getSingleServiceById(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Service fetched successfully.',
+    data: result,
+  });
+})
 
 
 // const updateBike= catchAsync(async (req, res) => {
@@ -73,4 +63,6 @@ const createService = catchAsync(async (req, res) => {
 
 export const MyServiceControllers = {
   createService,
+  getAllServices,
+  getSingleServiceById,
 };

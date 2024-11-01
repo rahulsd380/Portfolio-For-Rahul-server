@@ -13,21 +13,20 @@ const createService = async (payload: TMyService, file: any) => {
     const { secure_url } = await sendImageToCloudinary(imageName, path);
     payload.icon = secure_url;
   }
-  
+
   const result = await MyService.create(payload);
   return result;
 };
 
+const getAllServices = async () => {
+  const result = await MyService.find();
+  return result;
+};
 
-// const getAllBikes = async () => {
-//   const result = await MyService.find();
-//   return result;
-// };
-
-// const getSingleBikeById = async (bikeId: string) => {
-//   const result = await MyService.findById(bikeId);
-//   return result;
-// };
+const getSingleServiceById = async (id: string) => {
+  const result = await MyService.findById(id);
+  return result;
+};
 
 // const updateBike = async (id : string, payload : Partial<TMyService>) => {
 //   const result = await Bike.findByIdAndUpdate(id, payload, {
@@ -44,8 +43,8 @@ const createService = async (payload: TMyService, file: any) => {
 
 export const MyServices = {
   createService,
-  // getAllBikes,
-  // updateBike,
+  getAllServices,
+  getSingleServiceById,
   // deleteBike,
   // getSingleBikeById,
 };
