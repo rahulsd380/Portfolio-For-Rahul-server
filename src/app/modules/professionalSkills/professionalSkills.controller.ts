@@ -5,7 +5,8 @@ import catchAsync from '../../utils/catchAsync';
 import {ProfessionalSkillServices } from './professionalSkills.service';
 
 const addNewSkill = catchAsync(async (req, res) => {
-    const file = req.file;
+  const file = req.file;
+  console.log(file)
     const result = await ProfessionalSkillServices.addNewSkill(req.body, file);
     sendResponse(res, {
       statusCode: httpStatus.OK,

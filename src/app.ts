@@ -14,7 +14,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 // Middleware for handling CORS with credentials
-app.use(cors({ origin: ['https://orbit-rides.vercel.app'], credentials: true }));
+app.use(cors({ origin: ['http://localhost:5173'], credentials: true }));
 
 // Root route
 app.get('/', (req, res) => {
@@ -29,5 +29,16 @@ app.use(notFoundHandler);
 
 // Global error handling middleware
 app.use(globalErrorHabdeler);
+
+app.post("/api/v1/services", async (req, res) => {
+  try {
+    // Handle your logic
+    res.status(200).json({ message: "Success" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 
 export default app;
