@@ -24,7 +24,25 @@ app.use((0, cookie_parser_1.default)());
 // Middleware for parsing JSON bodies
 app.use(express_1.default.json());
 // Middleware for handling CORS with credentials
-app.use((0, cors_1.default)({ origin: ['https://portfolio-rahul-admin.vercel.app/', 'https://developer-rahul.vercel.app/', 'http://localhost:5173', 'http://localhost:5174'], credentials: true }));
+// app.use(cors({
+//   origin: [
+//     'https://portfolio-rahul-admin.vercel.app',
+//     'https://developer-rahul.vercel.app',
+//     'http://localhost:5173',
+//     'http://localhost:5174',
+//   ],
+//   credentials: true,
+// }));
+// app.options('*', cors());
+app.use((0, cors_1.default)({
+    origin: [
+        'https://portfolio-rahul-admin.vercel.app',
+        'https://developer-rahul.vercel.app',
+        'http://localhost:5173',
+        'http://localhost:5174',
+    ],
+    credentials: true,
+}));
 // Root route
 app.get('/', (req, res) => {
     res.send("Welcome to bike rental");
