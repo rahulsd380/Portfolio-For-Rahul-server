@@ -24,7 +24,18 @@ app.use(express.json());
 //   credentials: true,
 // }));
 
-app.options('*', cors());
+// app.options('*', cors());
+app.use(
+  cors({
+    origin: [
+      'https://portfolio-rahul-admin.vercel.app',
+      'https://developer-rahul.vercel.app',
+      'http://localhost:5173',
+      'http://localhost:5174',
+    ],
+    credentials: true,
+  })
+);
 
 
 // Root route
