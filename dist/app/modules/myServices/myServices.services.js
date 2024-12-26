@@ -15,6 +15,7 @@ const sendImageToCloudinary_1 = require("../../utils/sendImageToCloudinary");
 const myServices_model_1 = require("./myServices.model");
 // Create new service
 const createService = (payload, file) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(payload);
     // checking if the file is there or not
     if (file && file.path) {
         const imageName = `${payload === null || payload === void 0 ? void 0 : payload.name}`;

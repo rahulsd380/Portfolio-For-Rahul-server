@@ -21,7 +21,6 @@ const createProject = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
     const files = req.files;
     const images = (files === null || files === void 0 ? void 0 : files.images) || [];
     const logos = (files === null || files === void 0 ? void 0 : files.logos) || [];
-    console.log(req.body);
     const result = yield project_service_1.ProjectServices.addProject(req.body, images, logos);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,

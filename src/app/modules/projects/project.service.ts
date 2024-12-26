@@ -4,7 +4,7 @@ import { TProject } from "./project.interface";
 import { Project } from "./project.model";
 
 const addProject = async (payload: TProject, images: any[], logos: any[]) => {
-  const { name, tagline, overview, duration, features, sourceCode, liveLink, overviewVideo, technologyNames, category, projectType } = payload;
+  const { name, tagline, overview, duration, features,frontendRepo, backendRepo, liveLink, overviewVideo, technologyNames, category, projectType } = payload;
 
   const imageUrls: string[] = [];
   const logoUrls: string[] = [];
@@ -31,7 +31,8 @@ const addProject = async (payload: TProject, images: any[], logos: any[]) => {
     overview: overview || "",
     duration: duration || "",
     features: features || [],
-    sourceCode: sourceCode || "",
+    frontendRepo: frontendRepo || "",
+    backendRepo: backendRepo || "",
     liveLink: liveLink || "",
     overviewVideo: overviewVideo || "",
     images: imageUrls.length > 0 ? imageUrls : [],

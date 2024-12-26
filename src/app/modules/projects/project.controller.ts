@@ -9,8 +9,6 @@ const createProject = catchAsync(async (req, res) => {
   const images = files?.images || [];
   const logos = files?.logos || [];
 
-  console.log(req.body);
-
   const result = await ProjectServices.addProject(req.body, images, logos);
 
   sendResponse(res, {

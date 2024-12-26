@@ -5,6 +5,7 @@ import { MyService } from "./myServices.model";
 
 // Create new service
 const createService = async (payload: TMyService, file: any) => {
+  console.log(payload);
   // checking if the file is there or not
   if (file && file.path) {
     const imageName = `${payload?.name}`;

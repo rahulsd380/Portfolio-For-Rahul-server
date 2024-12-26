@@ -4,9 +4,10 @@ export type TProject = {
   overview: string;
   duration: string;
   features: string[];
-  sourceCode: string;
+  frontendRepo?: string;
+  backendRepo?: string;
   liveLink: string;
-  overviewVideo: string;
+  overviewVideo?: string;
   images: string[];
   technologyNames: string[];
   technologyLogos: string[];

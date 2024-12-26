@@ -23,9 +23,13 @@ const ProjectSchema = new Schema<TProject>(
       type: [String],
       required: [true, "At least one feature is required"],
     },
-    sourceCode: {
+    frontendRepo: {
       type: String,
-      required: [true, "Source code link is required"],
+      default : ""
+    },
+    backendRepo: {
+      type: String,
+      default : ""
     },
     liveLink: {
       type: String,

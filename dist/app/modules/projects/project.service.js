@@ -14,7 +14,7 @@ exports.ProjectServices = void 0;
 const sendImageToCloudinary_1 = require("../../utils/sendImageToCloudinary");
 const project_model_1 = require("./project.model");
 const addProject = (payload, images, logos) => __awaiter(void 0, void 0, void 0, function* () {
-    const { name, tagline, overview, duration, features, sourceCode, liveLink, overviewVideo, technologyNames, category, projectType } = payload;
+    const { name, tagline, overview, duration, features, frontendRepo, backendRepo, liveLink, overviewVideo, technologyNames, category, projectType } = payload;
     const imageUrls = [];
     const logoUrls = [];
     // Upload project images
@@ -37,7 +37,8 @@ const addProject = (payload, images, logos) => __awaiter(void 0, void 0, void 0,
         overview: overview || "",
         duration: duration || "",
         features: features || [],
-        sourceCode: sourceCode || "",
+        frontendRepo: frontendRepo || "",
+        backendRepo: backendRepo || "",
         liveLink: liveLink || "",
         overviewVideo: overviewVideo || "",
         images: imageUrls.length > 0 ? imageUrls : [],
