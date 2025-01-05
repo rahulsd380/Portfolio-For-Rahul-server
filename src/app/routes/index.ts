@@ -8,6 +8,7 @@ import { EducationRoutes } from "../modules/education/education.route";
 import { ExperienceRoutes } from "../modules/expericence/experience.route";
 import { ProjectRoutes } from "../modules/projects/project.route";
 import { AuthRoutes } from "../modules/auth/auth.route";
+import { BlogRoutes } from "../modules/blogs/blogs.route";
 
 const router = Router();
 
@@ -47,6 +48,10 @@ const moduleRoutes = [
   {
     path: "/auth",
     route: AuthRoutes,
+  },
+  {
+    path: "/blog",
+    route: BlogRoutes,
   },
 ];
 

@@ -14,16 +14,6 @@ app.use(cookieParser());
 app.use(express.json());
 
 // Middleware for handling CORS with credentials
-// app.use(cors({
-//   origin: [
-//     'https://portfolio-rahul-admin.vercel.app',
-//     'https://developer-rahul.vercel.app',
-//     'http://localhost:5173',
-//     'http://localhost:5174',
-//   ],
-//   credentials: true,
-// }));
-
 // app.options('*', cors());
 app.use(
   cors({
