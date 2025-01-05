@@ -10,6 +10,7 @@ const education_route_1 = require("../modules/education/education.route");
 const experience_route_1 = require("../modules/expericence/experience.route");
 const project_route_1 = require("../modules/projects/project.route");
 const auth_route_1 = require("../modules/auth/auth.route");
+const blogs_route_1 = require("../modules/blogs/blogs.route");
 const router = (0, express_1.Router)();
 const moduleRoutes = [
     {
@@ -47,6 +48,10 @@ const moduleRoutes = [
     {
         path: "/auth",
         route: auth_route_1.AuthRoutes,
+    },
+    {
+        path: "/blog",
+        route: blogs_route_1.BlogRoutes,
     },
 ];
 moduleRoutes.forEach((route) => router.use(route.path, route.route));

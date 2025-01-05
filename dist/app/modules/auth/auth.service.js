@@ -24,7 +24,6 @@ const createPin = (pin) => __awaiter(void 0, void 0, void 0, function* () {
 const loginWithPin = (pin) => __awaiter(void 0, void 0, void 0, function* () {
     // Check if the PIN is valid
     const isValidPin = yield auth_model_1.Pin.findOne({ pin });
-    console.log(isValidPin);
     if (!isValidPin) {
         throw new AppError_1.default(403, "Invalid PIN");
     }

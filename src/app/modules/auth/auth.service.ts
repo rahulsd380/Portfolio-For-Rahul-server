@@ -11,7 +11,6 @@ const createPin = async (pin: string) => {
 const loginWithPin = async (pin: string) => {
   // Check if the PIN is valid
   const isValidPin = await Pin.findOne({pin});
-  console.log(isValidPin);
 
   if (!isValidPin) {
     throw new AppError(403, "Invalid PIN");
