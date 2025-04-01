@@ -30,7 +30,7 @@ app.use(
 
 // Root route
 app.get('/', (req, res) => {
-  res.send("Welcome to bike rental");
+  res.send("Welcome!!");
 });
 
 // Application routes

@@ -36,7 +36,7 @@ app.use((0, cors_1.default)({
 }));
 // Root route
 app.get('/', (req, res) => {
-    res.send("Welcome to bike rental");
+    res.send("Welcome!!");
 });
 // Application routes
 app.use('/api/v1', routes_1.default);
