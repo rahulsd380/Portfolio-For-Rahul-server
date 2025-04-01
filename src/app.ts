@@ -14,18 +14,18 @@ app.use(cookieParser());
 app.use(express.json());
 
 // Middleware for handling CORS with credentials
-// app.options('*', cors());
-app.use(
-  cors({
-    origin: [
-      'https://portfolio-rahul-admin.vercel.app',
-      'https://developer-rahul.vercel.app',
-      'http://localhost:5173',
-      'http://localhost:3000',
-    ],
-    credentials: true,
-  })
-);
+app.options('*', cors());
+// app.use(
+//   cors({
+//     origin: [
+//       'https://portfolio-rahul-admin.vercel.app',
+//       'https://developer-rahul.vercel.app',
+//       'http://localhost:5173',
+//       'http://localhost:3000',
+//     ],
+//     credentials: true,
+//   })
+// );
 
 
 // Root route
